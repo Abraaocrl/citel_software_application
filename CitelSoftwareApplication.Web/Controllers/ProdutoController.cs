@@ -34,16 +34,20 @@ namespace CitelSoftwareApplication.Web.Controllers
         {
             try
             {
-                var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId);
-                if (categoria == null)
+                if (ModelState.IsValid)
                 {
-                    throw new Exception("Categoria não existe, verifique na tela de categorias.");
+                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId);
+                    if (categoria == null)
+                    {
+                        throw new Exception("Categoria não existe, verifique na tela de categorias.");
+                    }
+
+                    model.CategoriaNome = categoria.Nome;
+                    var response = await _produtoService.CreateProduto(model);
+                    return RedirectToAction(nameof(ProdutoIndex));
                 }
 
-                model.CategoriaNome = categoria.Nome;
-                var response = await _produtoService.CreateProduto(model);
-
-                return RedirectToAction(nameof(ProdutoIndex));
+                return View(model);
             }
             catch (Exception ex)
             {
@@ -65,9 +69,20 @@ namespace CitelSoftwareApplication.Web.Controllers
         {
             try
             {
-                var response = await _produtoService.UpdateProduto(model);
+                if (ModelState.IsValid)
+                {
+                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId);
+                    if (categoria == null)
+                    {
+                        throw new Exception("Categoria não existe, verifique na tela de categorias.");
+                    }
 
-                return RedirectToAction(nameof(ProdutoIndex));
+                    model.CategoriaNome = categoria.Nome;
+                    var response = await _produtoService.UpdateProduto(model);
+                    return RedirectToAction(nameof(ProdutoIndex));
+                }
+
+                return View(model);
             }
             catch (Exception ex)
             {

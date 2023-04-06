@@ -15,7 +15,7 @@ namespace CitelSoftwareApplication.Web.Models
 
         public decimal Preco { get; set; }
 
-        [Required(ErrorMessage = "Por favor, selecione uma categoria")]
+        [Range(1, long.MaxValue, ErrorMessage = "Por favor, selecione uma categoria.")]
         public long CategoriaId { get; set; }
 
         public string? CategoriaNome { get; set; }

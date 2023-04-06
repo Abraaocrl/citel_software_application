@@ -1,6 +1,9 @@
 ﻿@using CitelSoftwareApplication.Web.Services.Interface;
 @model ProdutoViewModel
 @inject ICategoriaService _categoriaService
+@{
+    ViewData["Title"] = "Produto";
+}
 
 @if (ViewData["ErrorMessage"] != null)
 {
@@ -10,7 +13,7 @@
 }
 
 <form method="post">
-    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <h3>
         Criar produto
@@ -43,7 +46,7 @@
                 <div class="col-12">
                     <label asp-for="CategoriaId">Categoria</label>
                     <select asp-for="CategoriaId" class="form-control" asp-items="@(await _categoriaService.GetOpcaoCategorias())">
-                        <option value=null>Selecione uma categoria</option>
+                        <option value="">Selecione uma categoria</option>
                     </select>
                     <span asp-validation-for="CategoriaId" class="text-danger " />
                 </div>
@@ -52,10 +55,10 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col-12 col-md-3">
-                    <a class="btn btn-primary form-control" asp-action="CategoriaIndex"><i class="fas fa-list"></i> Voltar</a>
+                    <a class="btn btn-primary form-control" asp-action="ProdutoIndex"><i class="fas fa-list"></i> Voltar</a>
                 </div>
                 <div class="col-12 col-md-3 offset-md-6">
-                    <button type="submit" class="btn btn-success form-control"><i class="fas fa-check"></i> Salvar</button>
+                    <input type="submit" value="Salvar" class="btn btn-success form-control">
                 </div>
             </div>
         </div>
@@ -63,5 +66,4 @@
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
 }
