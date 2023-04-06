@@ -1,0 +1,67 @@
+﻿@using CitelSoftwareApplication.Web.Services.Interface;
+@model ProdutoViewModel
+@inject ICategoriaService _categoriaService
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-warning">
+        @ViewData["ErrorMessage"]
+    </div>
+}
+
+<form method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <h3>
+        Criar produto
+    </h3>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row pb-4">
+                <div class="col-12 ">
+                    <label asp-for="Nome">Nome</label>
+                    <input asp-for="Nome" type="text" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger " />
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col-12">
+                    <label asp-for="Descricao">Descrição</label>
+                    <input asp-for="Descricao" type="text" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger " />
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col-12">
+                    <label asp-for="Preco">Preço</label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col-12">
+                    <label asp-for="CategoriaId">Categoria</label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="@(await _categoriaService.GetOpcaoCategorias())">
+                        <option value=null>Selecione uma categoria</option>
+                    </select>
+                    <span asp-validation-for="CategoriaId" class="text-danger " />
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <a class="btn btn-primary form-control" asp-action="CategoriaIndex"><i class="fas fa-list"></i> Voltar</a>
+                </div>
+                <div class="col-12 col-md-3 offset-md-6">
+                    <button type="submit" class="btn btn-success form-control"><i class="fas fa-check"></i> Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

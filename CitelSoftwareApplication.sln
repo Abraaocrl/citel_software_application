@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CitelSoftwareApplication.Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CitelSoftwareApplication.CategoriaAPI", "CitelSoftwareApplication.CategoriaAPI\CitelSoftwareApplication.CategoriaAPI.csproj", "{30264E2D-F3D8-4E84-A1F3-AC8433C495BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{E1129784-C7A0-47B0-8AA4-74F9E90F290E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CitelSoftwareApplication.Web", "CitelSoftwareApplication.Web\CitelSoftwareApplication.Web.csproj", "{2A2C61F3-A3F8-4900-BCC8-0C802B39E667}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{30264E2D-F3D8-4E84-A1F3-AC8433C495BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30264E2D-F3D8-4E84-A1F3-AC8433C495BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30264E2D-F3D8-4E84-A1F3-AC8433C495BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2C61F3-A3F8-4900-BCC8-0C802B39E667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2C61F3-A3F8-4900-BCC8-0C802B39E667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2C61F3-A3F8-4900-BCC8-0C802B39E667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2C61F3-A3F8-4900-BCC8-0C802B39E667}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{02635288-5340-4D6B-8999-E56E2A639C35} = {02F42D31-A07D-45AE-AE9C-C903AEFE1E2F}
 		{30264E2D-F3D8-4E84-A1F3-AC8433C495BE} = {02F42D31-A07D-45AE-AE9C-C903AEFE1E2F}
+		{2A2C61F3-A3F8-4900-BCC8-0C802B39E667} = {E1129784-C7A0-47B0-8AA4-74F9E90F290E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BCA4F00-8688-4BC7-A86C-0A67AF6D8220}
