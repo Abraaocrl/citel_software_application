@@ -1,6 +1,8 @@
-﻿using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
+﻿using CitelSoftwareApplication.CategoriaAPI.Data;
+using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
 using CitelSoftwareApplication.CategoriaAPI.Repository.Interface;
 using CitelSoftwareApplication.CategoriaAPI.Service.Interface;
+using Mapster;
 
 namespace CitelSoftwareApplication.CategoriaAPI.Service
 {
@@ -13,9 +15,9 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
             _repository = repository;
         }
 
-        public async Task<Categoria> Create(Categoria categoria)
+        public async Task<CategoriaDTO> Create(CategoriaDTO categoria)
         {
-            return await _repository.CreateAsync(categoria);
+            return (await _repository.CreateAsync(categoria.Adapt<Categoria>())).Adapt<CategoriaDTO>();
         }
 
         public async Task<bool> DeleteByIdAsync(long id)
@@ -26,12 +28,12 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
             return await _repository.DeleteAsync(categoria);
         }
 
-        public async Task<IEnumerable<Categoria>> GetAllAsync()
+        public async Task<IEnumerable<CategoriaDTO>> GetAllAsync()
         {
-            return await _repository.GetAllAsync();
+            return (await _repository.GetAllAsync()).Adapt<IEnumerable<CategoriaDTO>>();
         }
 
-        public async Task<Categoria> GetByIdAsync(long id)
+        public async Task<CategoriaDTO> GetByIdAsync(long id)
         {
             var categoriaDb = await _repository.GetByIdAsync(id);
             if (categoriaDb == null)
@@ -39,10 +41,10 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
                 throw new NotFoundException("Categoria não encontrada");
             }
 
-            return categoriaDb;
+            return categoriaDb.Adapt<CategoriaDTO>();
         }
 
-        public async Task<Categoria> Update(Categoria categoria)
+        public async Task<CategoriaDTO> Update(CategoriaDTO categoria)
         {
             var categoriaDb = await _repository.GetByIdAsync(categoria.Id);
             if(categoriaDb == null)
@@ -50,7 +52,7 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
                 throw new NotFoundException("Categoria não encontrada");
             }
 
-            return await _repository.UpdateAsync(categoria);
+            return (await _repository.UpdateAsync(categoria.Adapt<Categoria>())).Adapt<CategoriaDTO>();
         }
     }
 }

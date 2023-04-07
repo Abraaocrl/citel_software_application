@@ -1,16 +1,17 @@
-﻿using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
+﻿using CitelSoftwareApplication.CategoriaAPI.Data;
+using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
 
 namespace CitelSoftwareApplication.CategoriaAPI.Service.Interface
 {
     public interface ICategoriaService
     {
-        Task<IEnumerable<Categoria>> GetAllAsync();
+        Task<IEnumerable<CategoriaDTO>> GetAllAsync();
 
-        Task<Categoria> GetByIdAsync(long id);
+        Task<CategoriaDTO> GetByIdAsync(long id);
 
-        Task<Categoria> Create(Categoria produto);
+        Task<CategoriaDTO> Create(CategoriaDTO produto);
 
-        Task<Categoria> Update(Categoria produto);
+        Task<CategoriaDTO> Update(CategoriaDTO produto);
 
         Task<bool> DeleteByIdAsync(long id);
     }

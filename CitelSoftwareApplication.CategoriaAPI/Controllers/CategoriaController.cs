@@ -1,4 +1,5 @@
-﻿using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
+﻿using CitelSoftwareApplication.CategoriaAPI.Data;
+using CitelSoftwareApplication.CategoriaAPI.Model.Domain;
 using CitelSoftwareApplication.CategoriaAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -70,7 +71,7 @@ namespace CitelSoftwareApplication.CategoriaAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Categoria categoria)
+        public async Task<IActionResult> Create(CategoriaDTO categoria)
         {
             try
             {
@@ -85,7 +86,7 @@ namespace CitelSoftwareApplication.CategoriaAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Categoria categoria)
+        public async Task<IActionResult> Update(CategoriaDTO categoria)
         {
             try
             {
