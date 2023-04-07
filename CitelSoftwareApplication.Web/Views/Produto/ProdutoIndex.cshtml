@@ -45,7 +45,7 @@
                                     @item.Descricao
                                 </td>
                                 <td class="text-end">
-                                    @item.Preco.ToString("C")
+                                    @((item.Preco ?? 0).ToString("C"))
                                 </td>
                                 <td>
                                     @item.CategoriaNome

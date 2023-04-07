@@ -20,7 +20,7 @@ namespace CitelSoftwareApplication.Web.Controllers
             return View(response);
         }
 
-        public async Task<IActionResult> CategoriaCreate()
+        public IActionResult CategoriaCreate()
         {
             return View();
         }

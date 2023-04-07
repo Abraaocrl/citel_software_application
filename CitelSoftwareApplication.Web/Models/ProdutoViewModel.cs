@@ -13,10 +13,11 @@ namespace CitelSoftwareApplication.Web.Models
         [Required(ErrorMessage = "O campo de descrição é obrigatório")]
         public string Descricao { get; set; }
 
-        public decimal Preco { get; set; }
+        [Required(ErrorMessage = "O campo de preço é obrigatório")]
+        public decimal? Preco { get; set; }
 
-        [Range(1, long.MaxValue, ErrorMessage = "Por favor, selecione uma categoria.")]
-        public long CategoriaId { get; set; }
+        [Required(ErrorMessage = "O campo de categoria é obrigatório")]
+        public long? CategoriaId { get; set; }
 
         public string? CategoriaNome { get; set; }
     }

@@ -36,7 +36,7 @@ namespace CitelSoftwareApplication.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId);
+                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId ?? 0);
                     if (categoria == null)
                     {
                         throw new Exception("Categoria não existe, verifique na tela de categorias.");
@@ -71,7 +71,7 @@ namespace CitelSoftwareApplication.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId);
+                    var categoria = await _categoriaService.GetCategoriaById(model.CategoriaId ?? 0);
                     if (categoria == null)
                     {
                         throw new Exception("Categoria não existe, verifique na tela de categorias.");
