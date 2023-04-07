@@ -1,6 +1,8 @@
-﻿using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
+﻿using CitelSoftwareApplication.ProdutoAPI.Data;
+using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
 using CitelSoftwareApplication.ProdutoAPI.Repository.Interface;
 using CitelSoftwareApplication.ProdutoAPI.Service.Interface;
+using Mapster;
 
 namespace CitelSoftwareApplication.ProdutoAPI.Service
 {
@@ -13,9 +15,9 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service
             _repository = repository;
         }
 
-        public async Task<Produto> Create(Produto produto)
+        public async Task<ProdutoDTO> Create(ProdutoDTO produtoDto)
         {
-            return await _repository.CreateAsync(produto);
+            return (await _repository.CreateAsync(produtoDto.Adapt<Produto>())).Adapt<ProdutoDTO>();
         }
 
         public async Task<bool> DeleteByIdAsync(long id)
@@ -26,12 +28,12 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service
             return await _repository.DeleteAsync(produto);
         }
 
-        public async Task<IEnumerable<Produto>> GetAllAsync()
+        public async Task<IEnumerable<ProdutoDTO>> GetAllAsync()
         {
-            return await _repository.GetAllAsync();
+            return (await _repository.GetAllAsync()).Adapt<IEnumerable<ProdutoDTO>>();
         }
 
-        public async Task<Produto> GetByIdAsync(long id)
+        public async Task<ProdutoDTO> GetByIdAsync(long id)
         {
             var produtoDb = await _repository.GetByIdAsync(id);
             if (produtoDb == null)
@@ -39,18 +41,18 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service
                 throw new NotFoundException("Produto não encontrado");
             }
 
-            return produtoDb;
+            return produtoDb.Adapt<ProdutoDTO>();
         }
 
-        public async Task<Produto> Update(Produto produto)
+        public async Task<ProdutoDTO> Update(ProdutoDTO produtoDto)
         {
-            var produtoDb = await _repository.GetByIdAsync(produto.Id);
-            if(produtoDb == null)
+            var produtoDb = await _repository.GetByIdAsync(produtoDto.Id);
+            if (produtoDb == null)
             {
                 throw new NotFoundException("Produto não encontrado");
             }
 
-            return await _repository.UpdateAsync(produto);
+            return (await _repository.UpdateAsync(produtoDto.Adapt<Produto>())).Adapt<ProdutoDTO>();
         }
     }
 }

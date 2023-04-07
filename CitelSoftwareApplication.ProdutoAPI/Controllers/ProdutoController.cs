@@ -1,4 +1,5 @@
-﻿using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
+﻿using CitelSoftwareApplication.ProdutoAPI.Data;
+using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
 using CitelSoftwareApplication.ProdutoAPI.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -70,7 +71,7 @@ namespace CitelSoftwareApplication.ProdutoAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Produto produto)
+        public async Task<IActionResult> Create(ProdutoDTO produto)
         {
             try
             {
@@ -85,7 +86,7 @@ namespace CitelSoftwareApplication.ProdutoAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Produto produto)
+        public async Task<IActionResult> Update(ProdutoDTO produto)
         {
             try
             {

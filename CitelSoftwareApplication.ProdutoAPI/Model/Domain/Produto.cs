@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Mapster;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CitelSoftwareApplication.ProdutoAPI.Model.Domain
 {

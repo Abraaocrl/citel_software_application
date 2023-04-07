@@ -1,16 +1,17 @@
-﻿using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
+﻿using CitelSoftwareApplication.ProdutoAPI.Data;
+using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
 
 namespace CitelSoftwareApplication.ProdutoAPI.Service.Interface
 {
     public interface IProdutoService
     {
-        Task<IEnumerable<Produto>> GetAllAsync();
+        Task<IEnumerable<ProdutoDTO>> GetAllAsync();
 
-        Task<Produto> GetByIdAsync(long id);
+        Task<ProdutoDTO> GetByIdAsync(long id);
 
-        Task<Produto> Create(Produto produto);
+        Task<ProdutoDTO> Create(ProdutoDTO produto);
 
-        Task<Produto> Update(Produto produto);
+        Task<ProdutoDTO> Update(ProdutoDTO produto);
 
         Task<bool> DeleteByIdAsync(long id);
     }
