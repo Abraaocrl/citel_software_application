@@ -1,2 +1,24 @@
-﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/cldrjs-0.5.4/dist/cldr.js"></script>
+<script src="~/lib/cldrjs-0.5.4/dist/cldr/event.js"></script>
+<script src="~/lib/cldrjs-0.5.4/dist/cldr/supplemental.js"></script>
+<script src="~/lib/globalize-1.7.0/dist/globalize.js"></script>
+<script src="~/lib/globalize-1.7.0/dist/globalize/number.js"></script>
+<script type="text/javascript">
+    $.when(
+        $.getJSON("/json/cldr-core-37.0.0/supplemental/likelySubtags.json"),
+        $.getJSON("/json/cldr-core-37.0.0/supplemental/numberingSystems.json"),
+        $.getJSON("/json/cldr-numbers-full-37.0.0/main/pt/numbers.json"),
+    ).then(function () {
+
+        // Normalize $.get results, we only need the JSON, not the request statuses.
+        return [].slice.apply(arguments, [0]).map(function (result) {
+            Globalize.load(result[0]);
+        });
+
+    }).then(function () {
+        Globalize.locale("pt");
+    })
+</script>
+<script src="~/lib/jquery-validation-globalize-1.0.0/jquery.validate.globalize.js"></script>

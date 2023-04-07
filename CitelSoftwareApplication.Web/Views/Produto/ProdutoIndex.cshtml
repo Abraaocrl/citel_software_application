@@ -1,64 +1,88 @@
 ﻿@model IEnumerable<ProdutoViewModel>
 @{
-    ViewData["Title"] = "Produto";
+    ViewData["Title"] = "Produtos";
 }
-<div class="container row p-1">
-    <div class="col-12 col-lg-8">
-        <h3>Produtos</h3>
-    </div>
-</div>
-<div class="card">
-    <div class="card-header text-end">
-        <a asp-action="ProdutoCreate" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Adicionar</a>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Descricao
-                            </th>
-                            <th class="text-end">
-                                Preço
-                            </th>
-                            <th>
-                                Categoria
-                            </th>
-                            <th class="text-end">
-                                Ações
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @item.Nome
-                                </td>
-                                <td>
-                                    @item.Descricao
-                                </td>
-                                <td class="text-end">
-                                    @((item.Preco ?? 0).ToString("C"))
-                                </td>
-                                <td>
-                                    @item.CategoriaNome
-                                </td>
-                                <td class="text-end">
-                                    <a asp-action="ProdutoUpdate" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="ProdutoDelete" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
             </div>
         </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-right">
+                        <a asp-action="ProdutoCreate" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Adicionar</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Nome
+                                            </th>
+                                            <th>
+                                                Descricao
+                                            </th>
+                                            <th class="text-end">
+                                                Preço
+                                            </th>
+                                            <th>
+                                                Categoria
+                                            </th>
+                                            <th class="text-end">
+                                                Ações
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.Nome
+                                                </td>
+                                                <td>
+                                                    @item.Descricao
+                                                </td>
+                                                <td class="text-end">
+                                                    @((item.Preco ?? 0).ToString("C"))
+                                                </td>
+                                                <td>
+                                                    @item.CategoriaNome
+                                                </td>
+                                                <td class="text-end">
+                                                    <a asp-action="ProdutoUpdate" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                                    <a asp-action="ProdutoDelete" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </div>
-</div>
+    <!-- /.container-fluid -->
+</section>

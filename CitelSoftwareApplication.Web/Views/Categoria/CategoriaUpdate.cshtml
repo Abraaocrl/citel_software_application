@@ -1,51 +1,76 @@
 ﻿@model CategoriaViewModel
 @{
-    ViewData["Title"] = "Categoria";
+    ViewData["Title"] = "Categorias";
 }
 
-@if (ViewData["ErrorMessage"] != null)
-{
-    <div class="alert alert-warning">
-        @ViewData["ErrorMessage"]
-    </div>
-}
-
-<form method="post">
-    <input asp-for="Id" type="hidden" />
-
-    <h3>
-        Editar categoria
-    </h3>
-
-    <div class="card">
-        <div class="card-body">
-            <div class="row pb-4">
-                <div class="col-12 ">
-                    <label asp-for="Nome">Nome</label>
-                    <input asp-for="Nome" type="text" class="form-control" />
-                    <span asp-validation-for="Nome" class="text-danger " />
-                </div>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewData["Title"]</h1>
             </div>
-            <div class="row pb-4">
-                <div class="col-12">
-                    <label asp-for="Descricao">Descrição</label>
-                    <input asp-for="Descricao" type="text" class="form-control" />
-                    <span asp-validation-for="Descricao" class="text-danger " />
-                </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Categoria" asp-action="CategoriaIndex">@ViewData["Title"]</a></li>
+                    <li class="breadcrumb-item active">Edição</li>
+                </ol>
             </div>
         </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <a class="btn btn-primary form-control" asp-action="CategoriaIndex"><i class="fas fa-list"></i> Voltar</a>
-                </div>
-                <div class="col-12 col-md-3 offset-md-6">
-                    <button type="submit" class="btn btn-success form-control"><i class="fas fa-check"></i> Salvar</button>
-                </div>
-            </div>
+    </div><!-- /.container-fluid -->
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            @ViewData["ErrorMessage"]
         </div>
+    }
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <form method="post">
+                        <input asp-for="Id" type="hidden" />
+                        <div class="card-body">
+                            <div class="row pb-4">
+                                <div class="col-12 ">
+                                    <label asp-for="Nome">Nome</label>
+                                    <input asp-for="Nome" type="text" class="form-control" />
+                                    <span asp-validation-for="Nome" class="text-danger " />
+                                </div>
+                            </div>
+                            <div class="row pb-4">
+                                <div class="col-12">
+                                    <label asp-for="Descricao">Descrição</label>
+                                    <input asp-for="Descricao" type="text" class="form-control" />
+                                    <span asp-validation-for="Descricao" class="text-danger " />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <a class="btn btn-primary form-control" asp-action="CategoriaIndex"><i class="fas fa-list"></i> Voltar</a>
+                                </div>
+                                <div class="col-12 col-md-3 offset-md-6">
+                                    <button type="submit" class="btn btn-success form-control"><i class="fas fa-check"></i> Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </div>
-</form>
+    <!-- /.container-fluid -->
+</section>
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
