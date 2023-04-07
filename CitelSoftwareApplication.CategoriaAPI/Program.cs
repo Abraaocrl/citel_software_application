@@ -32,6 +32,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var mySqlContext = scope.ServiceProvider.GetService<MySQLContext>();
+
+    mySqlContext.Database.Migrate();
+}
+
 app.UseHttpsRedirection();
 
 app.MapControllers();
