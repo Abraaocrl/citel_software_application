@@ -54,5 +54,10 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
 
             return (await _repository.UpdateAsync(categoria.Adapt<Categoria>())).Adapt<CategoriaDTO>();
         }
+
+        public async Task<int> GetContagemAsync()
+        {
+            return await _repository.GetCountAsync();
+        }
     }
 }

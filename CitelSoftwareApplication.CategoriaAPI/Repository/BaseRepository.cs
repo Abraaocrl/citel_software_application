@@ -36,6 +36,9 @@ namespace CitelSoftwareApplication.CategoriaAPI.Repository
         public virtual async Task<T> GetByIdAsync(long id)
             => await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
 
+        public async Task<int> GetCountAsync()
+         => await _context.Set<T>().AsNoTracking().CountAsync();
+
         public virtual async Task<T> UpdateAsync(T entity)
         {
             _context.Set<T>().Update(entity);
