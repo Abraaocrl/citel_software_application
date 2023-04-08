@@ -50,5 +50,11 @@ namespace CitelSoftwareApplication.Web.Services
                 return await response.ReadContentAs<ProdutoViewModel>();
             else throw new Exception(await response.ReadContentAs<string>());
         }
+
+        public async Task<int> GetContagemProduto()
+        {
+            var response = await _client.GetAsync($"{BasePath}/contagem");
+            return await response.ReadContentAs<int>();
+        }
     }
 }

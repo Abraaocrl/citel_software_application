@@ -63,5 +63,11 @@ namespace CitelSoftwareApplication.Web.Services
                 Text = x.Nome
             });
         }
+
+        public async Task<int> GetContagemCategoria()
+        {
+            var response = await _client.GetAsync($"{BasePath}/contagem");
+            return await response.ReadContentAs<int>();
+        }
     }
 }

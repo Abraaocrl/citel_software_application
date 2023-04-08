@@ -13,5 +13,7 @@ namespace CitelSoftwareApplication.Web.Services.Interface
         Task<ProdutoViewModel> UpdateProduto(ProdutoViewModel model);
 
         Task<bool> DeleteProduto(long id);
+
+        Task<int> GetContagemProduto();
     }
 }

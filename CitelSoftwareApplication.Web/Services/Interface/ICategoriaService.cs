@@ -16,5 +16,7 @@ namespace CitelSoftwareApplication.Web.Services.Interface
         Task<CategoriaViewModel> UpdateCategoria(CategoriaViewModel model);
 
         Task<bool> DeleteCategoria(long id);
+
+        Task<int> GetContagemCategoria();
     }
 }
