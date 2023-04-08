@@ -38,3 +38,8 @@ Aplicação Web ASP.NET MVC com páginas Razor usando Bootstrap para estilizaç�
 Para que o projeto seja testado, siga as seguintes instruções:
 - Instale os requisitos
 - Configure a execução simultânea para que todos os projetos sejam executados simultâneamente
+
+## FAQ
+
+### Como configurar o banco de dados?
+Os bancos são configurados usando a função Code First do Entity Framework, todos os códigos necessários para a criação do banco e quaisquer alterações necessárias são executadas ao compilar o projeto.
