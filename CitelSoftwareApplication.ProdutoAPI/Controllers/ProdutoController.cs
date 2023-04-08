@@ -51,6 +51,21 @@ namespace CitelSoftwareApplication.ProdutoAPI.Controllers
             }
         }
 
+        [HttpGet("contagem")]
+        public async Task<IActionResult> GetContagem()
+        {
+            try
+            {
+                var resposta = await _service.GetContagemAsync();
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {

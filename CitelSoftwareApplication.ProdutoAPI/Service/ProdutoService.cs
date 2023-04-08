@@ -3,6 +3,7 @@ using CitelSoftwareApplication.ProdutoAPI.Model.Domain;
 using CitelSoftwareApplication.ProdutoAPI.Repository.Interface;
 using CitelSoftwareApplication.ProdutoAPI.Service.Interface;
 using Mapster;
+using Microsoft.EntityFrameworkCore;
 
 namespace CitelSoftwareApplication.ProdutoAPI.Service
 {
@@ -53,6 +54,11 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service
             }
 
             return (await _repository.UpdateAsync(produtoDto.Adapt<Produto>())).Adapt<ProdutoDTO>();
+        }
+
+        public async Task<int> GetContagemAsync()
+        {
+            return await _repository.GetCountAsync();
         }
     }
 }

@@ -13,5 +13,7 @@ namespace CitelSoftwareApplication.ProdutoAPI.Repository.Interface
         Task<T> GetByIdAsync(long id);
 
         Task<IEnumerable<T>> GetAllAsync();
+
+        Task<int> GetCountAsync();
     }
 }

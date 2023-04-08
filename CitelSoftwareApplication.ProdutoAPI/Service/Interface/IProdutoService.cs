@@ -14,5 +14,7 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service.Interface
         Task<ProdutoDTO> Update(ProdutoDTO produto);
 
         Task<bool> DeleteByIdAsync(long id);
+
+        Task<int> GetContagemAsync();
     }
 }
