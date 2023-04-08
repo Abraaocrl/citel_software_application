@@ -16,28 +16,29 @@ Esse projeto é direcionado para avaliação técnica da seleção para vaga de 
 ## Arquitetura
 
 O projeto possui três componentes compondo uma arquitetura de microsserviços.
-Cada compontent funciona de maneira independente e não possui referência a nenhum projeto da solução.
+Cada componente funciona de maneira independente e não possui referência a nenhum outro projeto da solução.
 Os componentes são:
 
 ### API de Categorias
 
-API web usando a biblioteca ASP.NET implementando o repository pattern para controlar o acesso aos dados e seguindo os princípios SOLID. 
+API usando a biblioteca ASP.NET com Swagger implementando o repository pattern para controlar o acesso aos dados e seguindo os princípios SOLID. 
 O banco de dados conectado com a API possui apenas a tabela de Categorias.
 
 ### API de Produtos
 
-API web usando a biblioteca ASP.NET implementando o repository pattern para controlar o acesso aos dados e seguindo os princípios SOLID. 
-O banco de dados conectado com a API possui apenas a tabela de Produtos.
+API usando a biblioteca ASP.NET com Swagger implementando o repository pattern para controlar o acesso aos dados e seguindo os princípios SOLID. 
+O banco de dados conectado com a API possui apenas a tabela de Produtos. A tabela possui colunas com dados das categorias, mas a redundância de dados
+é permitida na arquitetura de microsserviços.
 
 ### Interface Web de administração
 
-Aplicação Web ASP.NET MVC com páginas Razor usando Bootstrap para estilização, fazendo as requisições para as APIs através do HttpClient nativo .Net
+Aplicação Web ASP.NET MVC com páginas Razor usando Bootstrap para estilização, fazendo as requisições para as APIs através do HttpClient nativo .Net.
 
 ## Inicialização
 
 Para que o projeto seja testado, siga as seguintes instruções:
-- Instale os requisitos
-- Configure a execução simultânea para que todos os projetos sejam executados simultâneamente
+- Instale os requisitos.
+- Configure a execução simultânea para que todos os projetos sejam executados simultâneamente.
 
 ## FAQ
 
