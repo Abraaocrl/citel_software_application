@@ -39,13 +39,13 @@
                                             <th>
                                                 Descricao
                                             </th>
-                                            <th class="text-end">
+                                            <th class="text-right">
                                                 Preço
                                             </th>
                                             <th>
                                                 Categoria
                                             </th>
-                                            <th class="text-end">
+                                            <th class="text-right">
                                                 Ações
                                             </th>
                                         </tr>
@@ -60,13 +60,13 @@
                                                 <td>
                                                     @item.Descricao
                                                 </td>
-                                                <td class="text-end">
+                                                <td class="text-right">
                                                     @((item.Preco ?? 0).ToString("C"))
                                                 </td>
                                                 <td>
                                                     @item.CategoriaNome
                                                 </td>
-                                                <td class="text-end">
+                                                <td class="text-right">
                                                     <a asp-action="ProdutoUpdate" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
                                                     <a asp-action="ProdutoDelete" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                                                 </td>
