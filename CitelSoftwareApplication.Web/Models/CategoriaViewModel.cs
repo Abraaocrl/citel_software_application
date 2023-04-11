@@ -6,10 +6,10 @@ namespace CitelSoftwareApplication.Web.Models
     {
         public long Id { get; set; }
 
-        [Required(ErrorMessage = "O campo de nome é obrigatório")]
+        [Required(ErrorMessage = "O nome é obrigatório")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "O campo de descrição é obrigatório")]
+        [Required(ErrorMessage = "A descrição é obrigatória")]
         public string Descricao { get; set; }
     }
 }

@@ -15,9 +15,9 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
             _repository = repository;
         }
 
-        public async Task<CategoriaDTO> Create(CategoriaDTO categoria)
+        public async Task<CategoriaDTO> Create(CategoriaDTO categoriaDto)
         {
-            return (await _repository.CreateAsync(categoria.Adapt<Categoria>())).Adapt<CategoriaDTO>();
+            return (await _repository.CreateAsync(categoriaDto.Adapt<Categoria>())).Adapt<CategoriaDTO>();
         }
 
         public async Task<bool> DeleteByIdAsync(long id)
@@ -44,15 +44,15 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service
             return categoriaDb.Adapt<CategoriaDTO>();
         }
 
-        public async Task<CategoriaDTO> Update(CategoriaDTO categoria)
+        public async Task<CategoriaDTO> Update(CategoriaDTO categoriaDto)
         {
-            var categoriaDb = await _repository.GetByIdAsync(categoria.Id);
+            var categoriaDb = await _repository.GetByIdAsync(categoriaDto.Id);
             if(categoriaDb == null)
             {
                 throw new NotFoundException("Categoria não encontrada");
             }
 
-            return (await _repository.UpdateAsync(categoria.Adapt<Categoria>())).Adapt<CategoriaDTO>();
+            return (await _repository.UpdateAsync(categoriaDto.Adapt<Categoria>())).Adapt<CategoriaDTO>();
         }
 
         public async Task<int> GetContagemAsync()

@@ -86,11 +86,11 @@ namespace CitelSoftwareApplication.ProdutoAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProdutoDTO produto)
+        public async Task<IActionResult> Create(ProdutoDTO produtoDto)
         {
             try
             {
-                var resposta = await _service.Create(produto);
+                var resposta = await _service.Create(produtoDto);
 
                 return Ok(resposta);
             }
@@ -101,11 +101,11 @@ namespace CitelSoftwareApplication.ProdutoAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(ProdutoDTO produto)
+        public async Task<IActionResult> Update(ProdutoDTO produtoDto)
         {
             try
             {
-                var resposta = await _service.Update(produto);
+                var resposta = await _service.Update(produtoDto);
 
                 return Ok(resposta);
             }

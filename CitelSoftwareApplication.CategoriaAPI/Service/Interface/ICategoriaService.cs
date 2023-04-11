@@ -9,9 +9,9 @@ namespace CitelSoftwareApplication.CategoriaAPI.Service.Interface
 
         Task<CategoriaDTO> GetByIdAsync(long id);
 
-        Task<CategoriaDTO> Create(CategoriaDTO produto);
+        Task<CategoriaDTO> Create(CategoriaDTO categoriaDto);
 
-        Task<CategoriaDTO> Update(CategoriaDTO produto);
+        Task<CategoriaDTO> Update(CategoriaDTO categoriaDto);
 
         Task<bool> DeleteByIdAsync(long id);
 

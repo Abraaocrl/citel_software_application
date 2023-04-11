@@ -9,9 +9,9 @@ namespace CitelSoftwareApplication.ProdutoAPI.Service.Interface
 
         Task<ProdutoDTO> GetByIdAsync(long id);
 
-        Task<ProdutoDTO> Create(ProdutoDTO produto);
+        Task<ProdutoDTO> Create(ProdutoDTO produtoDto);
 
-        Task<ProdutoDTO> Update(ProdutoDTO produto);
+        Task<ProdutoDTO> Update(ProdutoDTO produtoDto);
 
         Task<bool> DeleteByIdAsync(long id);
 

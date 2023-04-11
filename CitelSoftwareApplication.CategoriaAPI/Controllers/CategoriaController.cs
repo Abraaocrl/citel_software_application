@@ -86,11 +86,11 @@ namespace CitelSoftwareApplication.CategoriaAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CategoriaDTO categoria)
+        public async Task<IActionResult> Create(CategoriaDTO categoriaDto)
         {
             try
             {
-                var resposta = await _service.Create(categoria);
+                var resposta = await _service.Create(categoriaDto);
 
                 return Ok(resposta);
             }
@@ -101,11 +101,11 @@ namespace CitelSoftwareApplication.CategoriaAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(CategoriaDTO categoria)
+        public async Task<IActionResult> Update(CategoriaDTO Dto)
         {
             try
             {
-                var resposta = await _service.Update(categoria);
+                var resposta = await _service.Update(Dto);
 
                 return Ok(resposta);
             }

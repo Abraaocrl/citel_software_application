@@ -59,7 +59,7 @@
                             <div class="row pb-4">
                                 <div class="col-12">
                                     <label asp-for="CategoriaId">Categoria</label>
-                                    <select asp-for="CategoriaId" class="form-control" asp-items="@(await _categoriaService.GetOpcaoCategorias())">
+                                    <select asp-for="CategoriaId" class="form-control select2" asp-items="@(await _categoriaService.GetOpcaoCategorias())">
                                         <option value="">Selecione uma categoria</option>
                                     </select>
                                     <span asp-validation-for="CategoriaId" class="text-danger " />
@@ -72,7 +72,7 @@
                                     <a class="btn btn-primary form-control" asp-action="ProdutoIndex"><i class="fas fa-list"></i> Voltar</a>
                                 </div>
                                 <div class="col-12 col-md-3 offset-md-6">
-                                    <input type="submit" value="Salvar" class="btn btn-success form-control">
+                                    <button type="submit" class="btn btn-success form-control"><i class="fas fa-check"></i> Salvar</button>
                                 </div>
                             </div>
                         </div>
